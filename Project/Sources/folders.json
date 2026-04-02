@@ -1,0 +1,27 @@
+{
+	"(Default Classes)": {},
+	"(Default Folder)": {
+		"groups": [
+			"(Default Classes)",
+			"(Default Forms)",
+			"(Default Project Methods)",
+			"(Default Tables)"
+		]
+	},
+	"(Default Forms)": {},
+	"(Default Project Methods)": {},
+	"(Default Tables)": {},
+	"tests": {
+		"methods": [
+			"test_GitLabAPI"
+		],
+		"classes": [
+			"TestStats"
+		]
+	},
+	"trash": {
+		"groups": [
+			"(Default Folder)"
+		]
+	}
+}

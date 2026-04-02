@@ -1,0 +1,1083 @@
+{
+	"meta": {
+		"format": "4d-layout",
+		"version": 1,
+		"source4d": {
+			"version": "1",
+			"kind": "form"
+		}
+	},
+	"form": {
+		"windowTitle": "GitLab Releaser",
+		"windowSizingX": "variable",
+		"windowSizingY": "variable",
+		"windowMinWidth": 820,
+		"windowMinHeight": 620,
+		"destination": "detailScreen",
+		"rightMargin": 20,
+		"bottomMargin": 20,
+		"width": 820,
+		"height": 620,
+		"events": [
+			"onLoad",
+			"onPageChange",
+			"onClick",
+			"onDoubleClick",
+			"onAfterKeystroke",
+			"onBoundVariableChange",
+			"onTimer",
+			"onDrop",
+			"onBeginDragOver",
+			"onDragOver"
+		],
+		"method": "ObjectMethods/GitLabReleaser.4dm",
+		"colorScheme": "light"
+	},
+	"pages": [
+		{
+			"name": "page 0",
+			"role": "shared",
+			"elements": [
+				{
+					"id": "tab_control",
+					"type": "tab",
+					"props": {
+						"labels": [
+							"Packages",
+							"Releases",
+							"Settings"
+						],
+						"labelsPlacement": "top",
+						"focusable": true,
+						"action": "gotoPage",
+						"dataSourceTypeHint": "integer",
+						"events": [
+							"onClick"
+						]
+					},
+					"layout": {
+						"frame": {
+							"top": 8,
+							"left": 12,
+							"width": 796,
+							"height": 28
+						}
+					}
+				},
+				{
+					"id": "line_separator",
+					"type": "line",
+					"props": {
+						"stroke": "#cccccc",
+						"startPoint": "topLeft",
+						"endPoint": "bottomRight"
+					},
+					"layout": {
+						"placement": "below(tab_control)",
+						"align": "alignedWith(tab_control.left)",
+						"marginTop": 4,
+						"frame": {
+							"top": 40,
+							"left": 12,
+							"width": 796,
+							"height": 0
+						}
+					}
+				},
+				{
+					"id": "txt_status",
+					"type": "input",
+					"props": {
+						"dataSource": "Form.statusText",
+						"dataSourceTypeHint": "text",
+						"enterable": false,
+						"focusable": false,
+						"borderStyle": "none",
+						"textAlign": "left",
+						"fontFamily": "system",
+						"fontSize": 11,
+						"stroke": "#666666",
+						"sizingY": "move"
+					},
+					"layout": {
+						"placement": "below(line_separator)",
+						"align": "alignedWith(line_separator.left)",
+						"marginTop": 554,
+						"frame": {
+							"top": 594,
+							"left": 12,
+							"width": 796,
+							"height": 18
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "page 1",
+			"role": "page",
+			"elements": [
+				{
+					"id": "lbl_packages_title",
+					"type": "text",
+					"props": {
+						"text": "Package Registry",
+						"fontWeight": "bold",
+						"fontSize": 14,
+						"stroke": "#333333"
+					},
+					"layout": {
+						"frame": {
+							"top": 52,
+							"left": 16,
+							"width": 200,
+							"height": 20
+						}
+					}
+				},
+				{
+					"id": "btn_pkg_refresh",
+					"type": "button",
+					"props": {
+						"text": "Refresh",
+						"style": "regular",
+						"method": "ObjectMethods/btn_pkg_refresh.4dm",
+						"events": [
+							"onClick"
+						]
+					},
+					"layout": {
+						"frame": {
+							"top": 50,
+							"left": 560,
+							"width": 80,
+							"height": 24
+						}
+					}
+				},
+				{
+					"id": "btn_pkg_upload",
+					"type": "button",
+					"props": {
+						"text": "Upload\u2026",
+						"style": "regular",
+						"method": "ObjectMethods/btn_pkg_upload.4dm",
+						"events": [
+							"onClick"
+						]
+					},
+					"layout": {
+						"placement": "rightOf(btn_pkg_refresh)",
+						"align": "alignedWith(btn_pkg_refresh.top)",
+						"marginLeft": 4,
+						"frame": {
+							"top": 50,
+							"left": 644,
+							"width": 80,
+							"height": 24
+						}
+					}
+				},
+				{
+					"id": "btn_pkg_delete",
+					"type": "button",
+					"props": {
+						"text": "Delete",
+						"style": "regular",
+						"method": "ObjectMethods/btn_pkg_delete.4dm",
+						"events": [
+							"onClick"
+						]
+					},
+					"layout": {
+						"placement": "rightOf(btn_pkg_upload)",
+						"align": "alignedWith(btn_pkg_upload.top)",
+						"marginLeft": 4,
+						"frame": {
+							"top": 50,
+							"left": 728,
+							"width": 80,
+							"height": 24
+						}
+					}
+				},
+				{
+					"id": "lb_packages",
+					"type": "listbox",
+					"props": {
+						"listboxType": "collection",
+						"dataSource": "Form:C1466.packages",
+						"selectionMode": "single",
+						"showHeaders": true,
+						"showFooters": false,
+						"sortable": true,
+						"hideExtraBlankRows": true,
+						"currentItemSource": "Form:C1466.currentPackage",
+						"currentItemPositionSource": "Form:C1466.currentPackageIndex",
+						"sizingY": "grow",
+						"method": "ObjectMethods/lb_packages.4dm",
+						"events": [
+							"onClick",
+							"onSelectionChange"
+						],
+						"columns": [
+							{
+								"name": "col_pkg_name",
+								"header": {
+									"text": "Name",
+									"name": "Header1"
+								},
+								"dataSource": "This:C1470.name",
+								"width": 180,
+								"enterable": false,
+								"footer": {
+									"name": "Footer1"
+								}
+							},
+							{
+								"name": "col_pkg_version",
+								"header": {
+									"text": "Version",
+									"name": "Header2"
+								},
+								"dataSource": "This:C1470.version",
+								"width": 100,
+								"enterable": false,
+								"footer": {
+									"name": "Footer2"
+								}
+							},
+							{
+								"name": "col_pkg_type",
+								"header": {
+									"text": "Type",
+									"name": "Header3"
+								},
+								"dataSource": "This:C1470.package_type",
+								"width": 80,
+								"enterable": false,
+								"footer": {
+									"name": "Footer3"
+								}
+							},
+							{
+								"name": "col_pkg_created",
+								"header": {
+									"text": "Created",
+									"name": "Header4"
+								},
+								"dataSource": "This:C1470.created_at",
+								"width": 230,
+								"enterable": false,
+								"footer": {
+									"name": "Footer4"
+								}
+							},
+							{
+								"name": "col_pkg_id",
+								"header": {
+									"text": "ID",
+									"name": "Header5"
+								},
+								"dataSource": "This:C1470.id",
+								"width": 80,
+								"enterable": false,
+								"textAlign": "right",
+								"footer": {
+									"name": "Footer5"
+								}
+							}
+						]
+					},
+					"layout": {
+						"placement": "below(lbl_packages_title)",
+						"align": "alignedWith(lbl_packages_title.left)",
+						"marginTop": 8,
+						"frame": {
+							"top": 80,
+							"left": 16,
+							"width": 792,
+							"height": 200
+						}
+					}
+				},
+				{
+					"id": "lbl_pkg_details",
+					"type": "text",
+					"props": {
+						"text": "Package Files",
+						"fontWeight": "bold",
+						"fontSize": 12,
+						"stroke": "#333333"
+					},
+					"layout": {
+						"placement": "below(lb_packages)",
+						"align": "alignedWith(lb_packages.left)",
+						"marginTop": 12,
+						"frame": {
+							"top": 292,
+							"left": 16,
+							"width": 200,
+							"height": 18
+						}
+					}
+				},
+				{
+					"id": "btn_pkg_download",
+					"type": "button",
+					"props": {
+						"text": "Download\u2026",
+						"style": "regular",
+						"method": "ObjectMethods/btn_pkg_download.4dm",
+						"events": [
+							"onClick"
+						]
+					},
+					"layout": {
+						"frame": {
+							"top": 290,
+							"left": 718,
+							"width": 90,
+							"height": 24
+						}
+					}
+				},
+				{
+					"id": "lb_packageFiles",
+					"type": "listbox",
+					"props": {
+						"listboxType": "collection",
+						"dataSource": "Form:C1466.packageFiles",
+						"selectionMode": "single",
+						"showHeaders": true,
+						"showFooters": false,
+						"hideExtraBlankRows": true,
+						"currentItemSource": "Form:C1466.currentPackageFile",
+						"sizingY": "grow",
+						"columns": [
+							{
+								"name": "col_pf_name",
+								"header": {
+									"text": "File Name",
+									"name": "Header6"
+								},
+								"dataSource": "This:C1470.file_name",
+								"width": 250,
+								"enterable": false,
+								"footer": {
+									"name": "Footer6"
+								}
+							},
+							{
+								"name": "col_pf_size",
+								"header": {
+									"text": "Size",
+									"name": "Header7"
+								},
+								"dataSource": "This:C1470.size",
+								"width": 100,
+								"enterable": false,
+								"textAlign": "right",
+								"footer": {
+									"name": "Footer7"
+								}
+							},
+							{
+								"name": "col_pf_created",
+								"header": {
+									"text": "Created",
+									"name": "Header8"
+								},
+								"dataSource": "This:C1470.created_at",
+								"width": 150,
+								"enterable": false,
+								"footer": {
+									"name": "Footer8"
+								}
+							},
+							{
+								"name": "col_pf_sha256",
+								"header": {
+									"text": "SHA256",
+									"name": "Header9"
+								},
+								"dataSource": "This:C1470.file_sha256",
+								"width": 230,
+								"enterable": false,
+								"footer": {
+									"name": "Footer9"
+								}
+							}
+						]
+					},
+					"layout": {
+						"placement": "below(lbl_pkg_details)",
+						"align": "alignedWith(lbl_pkg_details.left)",
+						"marginTop": 8,
+						"frame": {
+							"top": 318,
+							"left": 16,
+							"width": 792,
+							"height": 260
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "page 2",
+			"role": "page",
+			"elements": [
+				{
+					"id": "lbl_releases_title",
+					"type": "text",
+					"props": {
+						"text": "Releases",
+						"fontWeight": "bold",
+						"fontSize": 14,
+						"stroke": "#333333"
+					},
+					"layout": {
+						"frame": {
+							"top": 52,
+							"left": 16,
+							"width": 200,
+							"height": 20
+						}
+					}
+				},
+				{
+					"id": "btn_rel_refresh",
+					"type": "button",
+					"props": {
+						"text": "Refresh",
+						"style": "regular",
+						"method": "ObjectMethods/btn_rel_refresh.4dm",
+						"events": [
+							"onClick"
+						]
+					},
+					"layout": {
+						"frame": {
+							"top": 50,
+							"left": 476,
+							"width": 80,
+							"height": 24
+						}
+					}
+				},
+				{
+					"id": "btn_rel_create",
+					"type": "button",
+					"props": {
+						"text": "Create\u2026",
+						"style": "regular",
+						"method": "ObjectMethods/btn_rel_create.4dm",
+						"events": [
+							"onClick"
+						]
+					},
+					"layout": {
+						"placement": "rightOf(btn_rel_refresh)",
+						"align": "alignedWith(btn_rel_refresh.top)",
+						"marginLeft": 4,
+						"frame": {
+							"top": 50,
+							"left": 560,
+							"width": 80,
+							"height": 24
+						}
+					}
+				},
+				{
+					"id": "btn_rel_edit",
+					"type": "button",
+					"props": {
+						"text": "Edit\u2026",
+						"style": "regular",
+						"method": "ObjectMethods/btn_rel_edit.4dm",
+						"events": [
+							"onClick"
+						]
+					},
+					"layout": {
+						"placement": "rightOf(btn_rel_create)",
+						"align": "alignedWith(btn_rel_create.top)",
+						"marginLeft": 4,
+						"frame": {
+							"top": 50,
+							"left": 644,
+							"width": 80,
+							"height": 24
+						}
+					}
+				},
+				{
+					"id": "btn_rel_delete",
+					"type": "button",
+					"props": {
+						"text": "Delete",
+						"style": "regular",
+						"method": "ObjectMethods/btn_rel_delete.4dm",
+						"events": [
+							"onClick"
+						]
+					},
+					"layout": {
+						"placement": "rightOf(btn_rel_edit)",
+						"align": "alignedWith(btn_rel_edit.top)",
+						"marginLeft": 4,
+						"frame": {
+							"top": 50,
+							"left": 728,
+							"width": 80,
+							"height": 24
+						}
+					}
+				},
+				{
+					"id": "lb_releases",
+					"type": "listbox",
+					"props": {
+						"listboxType": "collection",
+						"dataSource": "Form:C1466.releases",
+						"selectionMode": "single",
+						"showHeaders": true,
+						"showFooters": false,
+						"sortable": true,
+						"hideExtraBlankRows": true,
+						"currentItemSource": "Form:C1466.currentRelease",
+						"currentItemPositionSource": "Form:C1466.currentReleaseIndex",
+						"sizingY": "grow",
+						"method": "ObjectMethods/lb_releases.4dm",
+						"events": [
+							"onClick",
+							"onSelectionChange"
+						],
+						"columns": [
+							{
+								"name": "col_rel_tag",
+								"header": {
+									"text": "Tag",
+									"name": "Header10"
+								},
+								"dataSource": "This:C1470.tag_name",
+								"width": 120,
+								"enterable": false,
+								"footer": {
+									"name": "Footer10"
+								}
+							},
+							{
+								"name": "col_rel_name",
+								"header": {
+									"text": "Name",
+									"name": "Header11"
+								},
+								"dataSource": "This:C1470.name",
+								"width": 180,
+								"enterable": false,
+								"footer": {
+									"name": "Footer11"
+								}
+							},
+							{
+								"name": "col_rel_desc",
+								"header": {
+									"text": "Description",
+									"name": "Header12"
+								},
+								"dataSource": "This:C1470.description",
+								"width": 300,
+								"enterable": false,
+								"wordwrap": "none",
+								"truncateMode": "withEllipsis",
+								"footer": {
+									"name": "Footer12"
+								}
+							},
+							{
+								"name": "col_rel_date",
+								"header": {
+									"text": "Released",
+									"name": "Header13"
+								},
+								"dataSource": "This:C1470.released_at",
+								"width": 200,
+								"enterable": false,
+								"footer": {
+									"name": "Footer13"
+								}
+							}
+						]
+					},
+					"layout": {
+						"placement": "below(lbl_releases_title)",
+						"align": "alignedWith(lbl_releases_title.left)",
+						"marginTop": 8,
+						"frame": {
+							"top": 80,
+							"left": 16,
+							"width": 792,
+							"height": 200
+						}
+					}
+				},
+				{
+					"id": "lbl_release_links_title",
+					"type": "text",
+					"props": {
+						"text": "Release Asset Links",
+						"fontWeight": "bold",
+						"fontSize": 12,
+						"stroke": "#333333"
+					},
+					"layout": {
+						"placement": "below(lb_releases)",
+						"align": "alignedWith(lb_releases.left)",
+						"marginTop": 12,
+						"frame": {
+							"top": 292,
+							"left": 16,
+							"width": 200,
+							"height": 18
+						}
+					}
+				},
+				{
+					"id": "btn_rel_add_link",
+					"type": "button",
+					"props": {
+						"text": "Add Link\u2026",
+						"style": "regular",
+						"method": "ObjectMethods/btn_rel_add_link.4dm",
+						"events": [
+							"onClick"
+						]
+					},
+					"layout": {
+						"frame": {
+							"top": 290,
+							"left": 490,
+							"width": 90,
+							"height": 24
+						}
+					}
+				},
+				{
+					"id": "btn_rel_link_package",
+					"type": "button",
+					"props": {
+						"text": "Link Package\u2026",
+						"style": "regular",
+						"method": "ObjectMethods/btn_rel_link_package.4dm",
+						"events": [
+							"onClick"
+						]
+					},
+					"layout": {
+						"placement": "rightOf(btn_rel_add_link)",
+						"align": "alignedWith(btn_rel_add_link.top)",
+						"marginLeft": 4,
+						"frame": {
+							"top": 290,
+							"left": 584,
+							"width": 120,
+							"height": 24
+						}
+					}
+				},
+				{
+					"id": "btn_rel_remove_link",
+					"type": "button",
+					"props": {
+						"text": "Remove Link",
+						"style": "regular",
+						"method": "ObjectMethods/btn_rel_remove_link.4dm",
+						"events": [
+							"onClick"
+						]
+					},
+					"layout": {
+						"placement": "rightOf(btn_rel_link_package)",
+						"align": "alignedWith(btn_rel_link_package.top)",
+						"marginLeft": 4,
+						"frame": {
+							"top": 290,
+							"left": 708,
+							"width": 100,
+							"height": 24
+						}
+					}
+				},
+				{
+					"id": "lb_releaseLinks",
+					"type": "listbox",
+					"props": {
+						"listboxType": "collection",
+						"dataSource": "Form:C1466.releaseLinks",
+						"selectionMode": "single",
+						"showHeaders": true,
+						"showFooters": false,
+						"hideExtraBlankRows": true,
+						"currentItemSource": "Form:C1466.currentReleaseLink",
+						"sizingY": "grow",
+						"columns": [
+							{
+								"name": "col_rl_name",
+								"header": {
+									"text": "Name",
+									"name": "Header14"
+								},
+								"dataSource": "This:C1470.name",
+								"width": 200,
+								"enterable": false,
+								"footer": {
+									"name": "Footer14"
+								}
+							},
+							{
+								"name": "col_rl_url",
+								"header": {
+									"text": "URL",
+									"name": "Header15"
+								},
+								"dataSource": "This:C1470.url",
+								"width": 400,
+								"enterable": false,
+								"footer": {
+									"name": "Footer15"
+								}
+							},
+							{
+								"name": "col_rl_type",
+								"header": {
+									"text": "Type",
+									"name": "Header16"
+								},
+								"dataSource": "This:C1470.link_type",
+								"width": 100,
+								"enterable": false,
+								"footer": {
+									"name": "Footer16"
+								}
+							},
+							{
+								"name": "col_rl_id",
+								"header": {
+									"text": "ID",
+									"name": "Header17"
+								},
+								"dataSource": "This:C1470.id",
+								"width": 60,
+								"enterable": false,
+								"textAlign": "right",
+								"footer": {
+									"name": "Footer17"
+								}
+							}
+						]
+					},
+					"layout": {
+						"placement": "below(lbl_release_links_title)",
+						"align": "alignedWith(lbl_release_links_title.left)",
+						"marginTop": 8,
+						"frame": {
+							"top": 318,
+							"left": 16,
+							"width": 792,
+							"height": 260
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "page 3",
+			"role": "page",
+			"elements": [
+				{
+					"id": "lbl_settings_title",
+					"type": "text",
+					"props": {
+						"text": "Settings",
+						"fontWeight": "bold",
+						"fontSize": 14,
+						"stroke": "#333333"
+					},
+					"layout": {
+						"frame": {
+							"top": 52,
+							"left": 16,
+							"width": 200,
+							"height": 20
+						}
+					}
+				},
+				{
+					"id": "lbl_instance",
+					"type": "text",
+					"props": {
+						"text": "GitLab Instance URL:",
+						"textAlign": "right",
+						"fontSize": 12
+					},
+					"layout": {
+						"placement": "below(lbl_settings_title)",
+						"align": "alignedWith(lbl_settings_title.left)",
+						"marginTop": 20,
+						"frame": {
+							"top": 92,
+							"left": 16,
+							"width": 160,
+							"height": 20
+						}
+					}
+				},
+				{
+					"id": "inp_instance",
+					"type": "input",
+					"props": {
+						"dataSource": "Form:C1466.settings.instance",
+						"dataSourceTypeHint": "text",
+						"enterable": true,
+						"placeholder": "https://gitlab.com",
+						"focusable": true,
+						"borderStyle": "system"
+					},
+					"layout": {
+						"frame": {
+							"top": 90,
+							"left": 184,
+							"width": 400,
+							"height": 24
+						}
+					}
+				},
+				{
+					"id": "lbl_project_path",
+					"type": "text",
+					"props": {
+						"text": "Project Path:",
+						"textAlign": "right",
+						"fontSize": 12
+					},
+					"layout": {
+						"placement": "below(lbl_instance)",
+						"align": "alignedWith(lbl_instance.left)",
+						"marginTop": 16,
+						"frame": {
+							"top": 128,
+							"left": 16,
+							"width": 160,
+							"height": 20
+						}
+					}
+				},
+				{
+					"id": "inp_projectPath",
+					"type": "input",
+					"props": {
+						"dataSource": "Form:C1466.settings.projectPath",
+						"dataSourceTypeHint": "text",
+						"enterable": true,
+						"placeholder": "owner/repo",
+						"focusable": true,
+						"borderStyle": "system"
+					},
+					"layout": {
+						"placement": "below(inp_instance)",
+						"align": "alignedWith(inp_instance.left)",
+						"marginTop": 12,
+						"frame": {
+							"top": 126,
+							"left": 184,
+							"width": 400,
+							"height": 24
+						}
+					}
+				},
+				{
+					"id": "lbl_token",
+					"type": "text",
+					"props": {
+						"text": "Personal Access Token:",
+						"textAlign": "right",
+						"fontSize": 12
+					},
+					"layout": {
+						"placement": "below(lbl_project_path)",
+						"align": "alignedWith(lbl_project_path.left)",
+						"marginTop": 16,
+						"frame": {
+							"top": 164,
+							"left": 16,
+							"width": 160,
+							"height": 20
+						}
+					}
+				},
+				{
+					"id": "inp_token",
+					"type": "input",
+					"props": {
+						"dataSource": "Form:C1466.settings.token",
+						"dataSourceTypeHint": "text",
+						"enterable": true,
+						"placeholder": "glpat-xxxxxxxxxxxxxxxxxxxx",
+						"focusable": true,
+						"borderStyle": "system"
+					},
+					"layout": {
+						"placement": "below(inp_projectPath)",
+						"align": "alignedWith(inp_projectPath.left)",
+						"marginTop": 12,
+						"frame": {
+							"top": 162,
+							"left": 184,
+							"width": 400,
+							"height": 24
+						}
+					}
+				},
+				{
+					"id": "lbl_token_hint",
+					"type": "text",
+					"props": {
+						"text": "Requires 'api' scope for full access, 'read_api' for read-only",
+						"fontSize": 10,
+						"stroke": "#999999"
+					},
+					"layout": {
+						"placement": "below(inp_token)",
+						"align": "alignedWith(inp_token.left)",
+						"marginTop": 2,
+						"frame": {
+							"top": 188,
+							"left": 184,
+							"width": 400,
+							"height": 16
+						}
+					}
+				},
+				{
+					"id": "btn_open_token_page",
+					"type": "button",
+					"props": {
+						"text": "Create Token\u2026",
+						"style": "regular",
+						"method": "ObjectMethods/btn_open_token_page.4dm",
+						"events": [
+							"onClick"
+						]
+					},
+					"layout": {
+						"placement": "rightOf(inp_token)",
+						"align": "alignedWith(inp_token.top)",
+						"marginLeft": 12,
+						"frame": {
+							"top": 162,
+							"left": 596,
+							"width": 150,
+							"height": 24
+						}
+					}
+				},
+				{
+					"id": "btn_save_settings",
+					"type": "button",
+					"props": {
+						"text": "Save Settings",
+						"style": "regular",
+						"method": "ObjectMethods/btn_save_settings.4dm",
+						"events": [
+							"onClick"
+						]
+					},
+					"layout": {
+						"placement": "below(lbl_token_hint)",
+						"align": "alignedWith(lbl_token_hint.left)",
+						"marginTop": 20,
+						"frame": {
+							"top": 224,
+							"left": 184,
+							"width": 120,
+							"height": 28
+						}
+					}
+				},
+				{
+					"id": "btn_test_connection",
+					"type": "button",
+					"props": {
+						"text": "Test Connection",
+						"style": "regular",
+						"method": "ObjectMethods/btn_test_connection.4dm",
+						"events": [
+							"onClick"
+						]
+					},
+					"layout": {
+						"placement": "rightOf(btn_save_settings)",
+						"align": "alignedWith(btn_save_settings.top)",
+						"marginLeft": 12,
+						"frame": {
+							"top": 224,
+							"left": 316,
+							"width": 130,
+							"height": 28
+						}
+					}
+				},
+				{
+					"id": "lbl_connection_info",
+					"type": "text",
+					"props": {
+						"text": "Connection Info:",
+						"textAlign": "right",
+						"fontSize": 12,
+						"fontWeight": "bold",
+						"stroke": "#333333"
+					},
+					"layout": {
+						"placement": "below(lbl_token)",
+						"align": "alignedWith(lbl_token.left)",
+						"marginTop": 84,
+						"frame": {
+							"top": 268,
+							"left": 16,
+							"width": 160,
+							"height": 20
+						}
+					}
+				},
+				{
+					"id": "txt_connection_info",
+					"type": "input",
+					"props": {
+						"dataSource": "Form:C1466.connectionInfo",
+						"dataSourceTypeHint": "text",
+						"multiline": "yes",
+						"enterable": false,
+						"focusable": false,
+						"borderStyle": "system",
+						"fontSize": 11,
+						"stroke": "#444444",
+						"wordwrap": "automatic"
+					},
+					"layout": {
+						"placement": "below(btn_save_settings)",
+						"align": "alignedWith(btn_save_settings.left)",
+						"marginTop": 16,
+						"frame": {
+							"top": 268,
+							"left": 184,
+							"width": 560,
+							"height": 120
+						}
+					}
+				}
+			]
+		}
+	]
+}

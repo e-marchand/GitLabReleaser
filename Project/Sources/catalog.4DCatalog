@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="GitLabReleaser" uuid="3B91A996D6044F90B222DA37B2B6089E" collation_locale="en">
+	<schema name="DEFAULT_SCHEMA"/>
+</base>
