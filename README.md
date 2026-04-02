@@ -2,6 +2,8 @@
 
 A 4D desktop application to manage **packages**, **releases**, and **release links** on GitLab through its REST API v4.
 
+<img width="826" height="650" alt="GitLabReleaser" src="https://github.com/user-attachments/assets/7eb70d38-a0d0-450b-9869-a18163e43900" />
+
 ## Features
 
 - **Package Registry** — list, upload, download, and delete generic packages
