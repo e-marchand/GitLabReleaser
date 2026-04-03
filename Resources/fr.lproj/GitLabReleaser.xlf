@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD 1.0//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file datatype="x-STR#" original="undefined" product-version="v14" source-language="en-US" target-language="en">
+    <header>
+    </header>
+    <body>
+      <!-- Window -->
+      <trans-unit id="glr_window_title" resname="glr_window_title">
+        <source>GitLab Releaser</source>
+        <target>GitLab Releaser</target>
+      </trans-unit>
+
+      <!-- Tabs -->
+      <trans-unit id="glr_tab_packages" resname="glr_tab_packages">
+        <source>Packages</source>
+        <target>Paquets</target>
+      </trans-unit>
+      <trans-unit id="glr_tab_releases" resname="glr_tab_releases">
+        <source>Releases</source>
+        <target>Versions</target>
+      </trans-unit>
+      <trans-unit id="glr_tab_settings" resname="glr_tab_settings">
+        <source>Settings</source>
+        <target>Paramètres</target>
+      </trans-unit>
+
+      <!-- Section titles -->
+      <trans-unit id="glr_title_package_registry" resname="glr_title_package_registry">
+        <source>Package Registry</source>
+        <target>Registre de paquets</target>
+      </trans-unit>
+      <trans-unit id="glr_title_package_files" resname="glr_title_package_files">
+        <source>Package Files</source>
+        <target>Fichiers du paquet</target>
+      </trans-unit>
+      <trans-unit id="glr_title_releases" resname="glr_title_releases">
+        <source>Releases</source>
+        <target>Versions</target>
+      </trans-unit>
+      <trans-unit id="glr_title_release_links" resname="glr_title_release_links">
+        <source>Release Asset Links</source>
+        <target>Liens des ressources</target>
+      </trans-unit>
+      <trans-unit id="glr_title_settings" resname="glr_title_settings">
+        <source>Settings</source>
+        <target>Paramètres</target>
+      </trans-unit>
+
+      <!-- Buttons -->
+      <trans-unit id="glr_btn_refresh" resname="glr_btn_refresh">
+        <source>Refresh</source>
+        <target>Actualiser</target>
+      </trans-unit>
+      <trans-unit id="glr_btn_upload" resname="glr_btn_upload">
+        <source>Upload…</source>
+        <target>Téléverser…</target>
+      </trans-unit>
+      <trans-unit id="glr_btn_delete" resname="glr_btn_delete">
+        <source>Delete</source>
+        <target>Supprimer</target>
+      </trans-unit>
+      <trans-unit id="glr_btn_download" resname="glr_btn_download">
+        <source>Download…</source>
+        <target>Télécharger…</target>
+      </trans-unit>
+      <trans-unit id="glr_btn_create" resname="glr_btn_create">
+        <source>Create…</source>
+        <target>Créer…</target>
+      </trans-unit>
+      <trans-unit id="glr_btn_edit" resname="glr_btn_edit">
+        <source>Edit…</source>
+        <target>Modifier…</target>
+      </trans-unit>
+      <trans-unit id="glr_btn_add_link" resname="glr_btn_add_link">
+        <source>Add Link…</source>
+        <target>Ajouter un lien…</target>
+      </trans-unit>
+      <trans-unit id="glr_btn_link_package" resname="glr_btn_link_package">
+        <source>Link Package…</source>
+        <target>Lier un paquet…</target>
+      </trans-unit>
+      <trans-unit id="glr_btn_remove_link" resname="glr_btn_remove_link">
+        <source>Remove Link</source>
+        <target>Supprimer le lien</target>
+      </trans-unit>
+      <trans-unit id="glr_btn_create_token" resname="glr_btn_create_token">
+        <source>Create Token…</source>
+        <target>Créer un jeton…</target>
+      </trans-unit>
+      <trans-unit id="glr_btn_save_settings" resname="glr_btn_save_settings">
+        <source>Save Settings</source>
+        <target>Enregistrer</target>
+      </trans-unit>
+      <trans-unit id="glr_btn_test_connection" resname="glr_btn_test_connection">
+        <source>Test Connection</source>
+        <target>Tester la connexion</target>
+      </trans-unit>
+
+      <!-- Column headers -->
+      <trans-unit id="glr_col_name" resname="glr_col_name">
+        <source>Name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="glr_col_version" resname="glr_col_version">
+        <source>Version</source>
+        <target>Version</target>
+      </trans-unit>
+      <trans-unit id="glr_col_type" resname="glr_col_type">
+        <source>Type</source>
+        <target>Type</target>
+      </trans-unit>
+      <trans-unit id="glr_col_created" resname="glr_col_created">
+        <source>Created</source>
+        <target>Créé le</target>
+      </trans-unit>
+      <trans-unit id="glr_col_id" resname="glr_col_id">
+        <source>ID</source>
+        <target>ID</target>
+      </trans-unit>
+      <trans-unit id="glr_col_file_name" resname="glr_col_file_name">
+        <source>File Name</source>
+        <target>Nom du fichier</target>
+      </trans-unit>
+      <trans-unit id="glr_col_size" resname="glr_col_size">
+        <source>Size</source>
+        <target>Taille</target>
+      </trans-unit>
+      <trans-unit id="glr_col_sha256" resname="glr_col_sha256">
+        <source>SHA256</source>
+        <target>SHA256</target>
+      </trans-unit>
+      <trans-unit id="glr_col_tag" resname="glr_col_tag">
+        <source>Tag</source>
+        <target>Tag</target>
+      </trans-unit>
+      <trans-unit id="glr_col_description" resname="glr_col_description">
+        <source>Description</source>
+        <target>Description</target>
+      </trans-unit>
+      <trans-unit id="glr_col_released" resname="glr_col_released">
+        <source>Released</source>
+        <target>Publié le</target>
+      </trans-unit>
+      <trans-unit id="glr_col_url" resname="glr_col_url">
+        <source>URL</source>
+        <target>URL</target>
+      </trans-unit>
+
+      <!-- Settings labels -->
+      <trans-unit id="glr_lbl_instance_url" resname="glr_lbl_instance_url">
+        <source>GitLab Instance URL:</source>
+        <target>URL de l'instance GitLab :</target>
+      </trans-unit>
+      <trans-unit id="glr_lbl_project_path" resname="glr_lbl_project_path">
+        <source>Project Path:</source>
+        <target>Chemin du projet :</target>
+      </trans-unit>
+      <trans-unit id="glr_lbl_token" resname="glr_lbl_token">
+        <source>Personal Access Token:</source>
+        <target>Jeton d'accès personnel :</target>
+      </trans-unit>
+      <trans-unit id="glr_hint_token_scope" resname="glr_hint_token_scope">
+        <source>Requires 'api' scope for full access, 'read_api' for read-only</source>
+        <target>Nécessite le scope 'api' pour un accès complet, 'read_api' pour la lecture seule</target>
+      </trans-unit>
+      <trans-unit id="glr_lbl_connection_info" resname="glr_lbl_connection_info">
+        <source>Connection Info:</source>
+        <target>Infos de connexion :</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
