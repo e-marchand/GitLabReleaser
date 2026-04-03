@@ -81,14 +81,14 @@
 			"objects": {
 				"lbl_packages_title": {
 					"type": "text",
-					"top": 52,
+					"top": 50,
 					"left": 16,
 					"width": 200,
 					"height": 20,
 					"text": "Package Registry",
 					"fontWeight": "bold",
 					"fontSize": 14,
-					"stroke": "#333333"
+					"stroke": "automatic"
 				},
 				"btn_pkg_refresh": {
 					"type": "button",
@@ -228,11 +228,11 @@
 					"text": "Package Files",
 					"fontWeight": "bold",
 					"fontSize": 12,
-					"stroke": "#333333"
+					"stroke": "automatic"
 				},
 				"btn_pkg_download": {
 					"type": "button",
-					"top": 290,
+					"top": 292,
 					"left": 718,
 					"width": 90,
 					"height": 24,
@@ -319,14 +319,14 @@
 			"objects": {
 				"lbl_releases_title": {
 					"type": "text",
-					"top": 52,
+					"top": 50,
 					"left": 16,
 					"width": 200,
 					"height": 20,
 					"text": "Releases",
 					"fontWeight": "bold",
 					"fontSize": 14,
-					"stroke": "#333333"
+					"stroke": "automatic"
 				},
 				"btn_rel_refresh": {
 					"type": "button",
@@ -467,11 +467,11 @@
 					"text": "Release Asset Links",
 					"fontWeight": "bold",
 					"fontSize": 12,
-					"stroke": "#333333"
+					"stroke": "automatic"
 				},
 				"btn_rel_add_link": {
 					"type": "button",
-					"top": 290,
+					"top": 292,
 					"left": 490,
 					"width": 90,
 					"height": 24,
@@ -484,7 +484,7 @@
 				},
 				"btn_rel_link_package": {
 					"type": "button",
-					"top": 290,
+					"top": 292,
 					"left": 584,
 					"width": 120,
 					"height": 24,
@@ -497,7 +497,7 @@
 				},
 				"btn_rel_remove_link": {
 					"type": "button",
-					"top": 290,
+					"top": 292,
 					"left": 708,
 					"width": 100,
 					"height": 24,
@@ -591,11 +591,11 @@
 					"text": "Settings",
 					"fontWeight": "bold",
 					"fontSize": 14,
-					"stroke": "#333333"
+					"stroke": "automatic"
 				},
 				"lbl_instance": {
 					"type": "text",
-					"top": 92,
+					"top": 96,
 					"left": 16,
 					"width": 160,
 					"height": 20,
@@ -605,7 +605,7 @@
 				},
 				"inp_instance": {
 					"type": "input",
-					"top": 90,
+					"top": 96,
 					"left": 184,
 					"width": 400,
 					"height": 24,
@@ -618,7 +618,7 @@
 				},
 				"lbl_project_path": {
 					"type": "text",
-					"top": 128,
+					"top": 132,
 					"left": 16,
 					"width": 160,
 					"height": 20,
@@ -628,7 +628,7 @@
 				},
 				"inp_projectPath": {
 					"type": "input",
-					"top": 126,
+					"top": 132,
 					"left": 184,
 					"width": 400,
 					"height": 24,
@@ -641,7 +641,7 @@
 				},
 				"lbl_token": {
 					"type": "text",
-					"top": 164,
+					"top": 168,
 					"left": 16,
 					"width": 160,
 					"height": 20,
@@ -651,7 +651,7 @@
 				},
 				"inp_token": {
 					"type": "input",
-					"top": 162,
+					"top": 168,
 					"left": 184,
 					"width": 400,
 					"height": 24,
@@ -664,7 +664,7 @@
 				},
 				"lbl_token_hint": {
 					"type": "text",
-					"top": 188,
+					"top": 196,
 					"left": 184,
 					"width": 400,
 					"height": 16,
@@ -674,7 +674,7 @@
 				},
 				"btn_open_token_page": {
 					"type": "button",
-					"top": 162,
+					"top": 168,
 					"left": 596,
 					"width": 150,
 					"height": 24,
@@ -687,7 +687,7 @@
 				},
 				"btn_save_settings": {
 					"type": "button",
-					"top": 224,
+					"top": 228,
 					"left": 184,
 					"width": 120,
 					"height": 28,
@@ -700,7 +700,7 @@
 				},
 				"btn_test_connection": {
 					"type": "button",
-					"top": 224,
+					"top": 228,
 					"left": 316,
 					"width": 130,
 					"height": 28,
@@ -713,7 +713,7 @@
 				},
 				"lbl_connection_info": {
 					"type": "text",
-					"top": 268,
+					"top": 272,
 					"left": 16,
 					"width": 160,
 					"height": 20,
@@ -721,11 +721,11 @@
 					"textAlign": "right",
 					"fontSize": 12,
 					"fontWeight": "bold",
-					"stroke": "#333333"
+					"stroke": "automatic"
 				},
 				"txt_connection_info": {
 					"type": "input",
-					"top": 268,
+					"top": 272,
 					"left": 184,
 					"width": 560,
 					"height": 120,
@@ -742,5 +742,12 @@
 			}
 		}
 	],
-	"colorScheme": "light"
+	"geometryStamp": 2,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	}
 }
