@@ -607,7 +607,7 @@
 					"type": "input",
 					"top": 96,
 					"left": 184,
-					"width": 400,
+					"width": 449,
 					"height": 24,
 					"dataSource": "Form:C1466.settings.instance",
 					"dataSourceTypeHint": "text",
@@ -630,7 +630,7 @@
 					"type": "input",
 					"top": 132,
 					"left": 184,
-					"width": 400,
+					"width": 449,
 					"height": 24,
 					"dataSource": "Form:C1466.settings.projectPath",
 					"dataSourceTypeHint": "text",
@@ -653,14 +653,15 @@
 					"type": "input",
 					"top": 168,
 					"left": 184,
-					"width": 400,
+					"width": 449,
 					"height": 24,
 					"dataSource": "Form:C1466.settings.token",
 					"dataSourceTypeHint": "text",
 					"enterable": true,
 					"placeholder": "glpat-xxxxxxxxxxxxxxxxxxxx",
 					"focusable": true,
-					"borderStyle": "system"
+					"borderStyle": "system",
+					"fontSize": 10
 				},
 				"lbl_token_hint": {
 					"type": "text",
@@ -675,7 +676,7 @@
 				"btn_open_token_page": {
 					"type": "button",
 					"top": 168,
-					"left": 596,
+					"left": 648,
 					"width": 150,
 					"height": 24,
 					"text": ":xliff:glr_btn_create_token",
@@ -727,8 +728,8 @@
 					"type": "input",
 					"top": 272,
 					"left": 184,
-					"width": 560,
-					"height": 120,
+					"width": 614,
+					"height": 119,
 					"dataSource": "Form:C1466.connectionInfo",
 					"dataSourceTypeHint": "text",
 					"multiline": "yes",
@@ -742,7 +743,7 @@
 			}
 		}
 	],
-	"geometryStamp": 4,
+	"geometryStamp": 19,
 	"editor": {
 		"activeView": "View 1",
 		"defaultView": "View 1",
